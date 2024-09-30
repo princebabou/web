@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB - HTML5</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --transition: all 0.3s ease;
+            --header-height: 60px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 5px;
+            padding: 5px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        header button{
+            margin-right: 30px;
+        }
+
+        h1, h2 {
+            margin: 5px;
+        }
+
+        h1 a, h2 {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        h1 a:hover {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            overflow-y: auto;
+            transition: var(--transition);
+        }
+
+        nav ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 1rem 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+
+        nav a i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 2rem;
+            margin-top: var(--header-height);
+            margin-left: 200px;
+            transition: var(--transition);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        #menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                top: var(--header-height);
+                height: auto;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            #menu-toggle {
+                display: block;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        main {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">WEB</a></h1>
+        <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+    </header>
+    <nav>
+        <ol>
+            <li><a href="1.html"><i class="fas fa-code"></i> HTML</a></li>
+            <li><a href="2.html"><i class="fas fa-paint-brush"></i> CSS</a></li>
+            <li><a href="3.html"><i class="fab fa-js"></i> JavaScript</a></li>
+        </ol>
+    </nav>
+    <main>
+        <h2>HTML</h2>
+        <p>
+            <a href="https://www.w3.org/TR/html5/" target="_blank" title="html5 specification">
+                Hypertext Markup Language (HTML)
+            </a>
+            is the standard markup language for
+            <strong>creating <u>web</u> pages</strong>
+            and web applications. Web browsers receive HTML documents from a web
+            server or from local storage and render them into multimedia web pages.
+            HTML describes the structure of a web page semantically and originally
+            included cues for the appearance of the document.
+            <img src="coding.jpg" alt="Coding" />
+        </p>
+        <p>
+            HTML elements are the building blocks of HTML pages. With HTML constructs,
+            images and other objects, such as interactive forms, may be embedded into
+            the rendered page. It provides a means to create structured documents by
+            denoting structural semantics for text such as headings, paragraphs,
+            lists, links, quotes and other items. HTML elements are delineated by
+            tags, written using angle brackets.
+        </p>
+    </main>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
